@@ -4,15 +4,19 @@ import java.util.*;
 
 public class StringSortChallenge {
 
+    private StringSortChallenge() {
+    }
+
     /**
      * This method takes a string and sort the letters in alphabetical order
      * but if there is repeated letters, those must come first also sorted.
      * The method uses Java Utils Libraries such as Collections.
+     * O(n³)
      *
-     * @param inputString
+     * @param inputString any given string
      * @return sortedString
      */
-    public String sortStringWithDuplicates(String inputString) {
+    public static String sortStringWithDuplicates(String inputString) {
         char[] charArray = inputString.toLowerCase().toCharArray();
         Map<Character, Integer> charCount = new HashMap<>();
         List<Character> charList = new ArrayList<>();
@@ -42,11 +46,12 @@ public class StringSortChallenge {
      * but if there is repeated letters, those must come first also sorted.
      * The method does not use Java Utils Libraries such as Collections,
      * it's implemented using only primitive types and arrays.
+     * O(n³)
      *
-     * @param inputString
+     * @param inputString any given string
      * @return sortedString
      */
-    public String sortStringWithDuplicatesPrimitives(String inputString) {
+    public static String sortStringWithDuplicatesPrimitives(String inputString) {
         char[] charArray = inputString.toLowerCase().toCharArray();
         int[] charCount = new int[128]; // Assuming ASCII characters
 
