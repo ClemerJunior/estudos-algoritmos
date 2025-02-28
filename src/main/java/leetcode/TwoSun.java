@@ -1,13 +1,14 @@
 package leetcode;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class TwoSun {
 
     public static void main(String[] args) {
-        int[] nums = {-1,-2,-3,-4,-5};
-        int target = -8;
-        System.out.println(Arrays.toString(twoSum(nums, target)));
+        int[] nums = {2,7,11,15};
+        int target = 9;
+        System.out.println(Arrays.toString(twoSum2(nums, target)));
     }
 
     public static int[] twoSum(int[] nums, int target) {
@@ -29,5 +30,20 @@ public class TwoSun {
         } while(sum != target);
 
         return result;
+    }
+
+    public static int[] twoSum2(int[] nums, int target) {
+
+        HashMap<Integer, Integer> numMap = new HashMap();
+
+        for(int i = 0; i < nums.length; i++) {
+            if(numMap.containsKey(target - nums[i])) {
+                return new int[]{numMap.get(target - nums[i]), i};
+            } else {
+                numMap.put(nums[i], i);
+            }
+        }
+
+        return new int[]{};
     }
 }
